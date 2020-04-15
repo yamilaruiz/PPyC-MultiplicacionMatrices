@@ -44,7 +44,8 @@ namespace MultiplicacionMatricesSecuencial
 
                 int[,] matrixResponse = new int[r1, c2];
 
-                for (int i = 0; i < r1; i++)
+                //for (int i = 0; i < r1; i++)
+                Parallel.For(0, r1, i =>
                 {
                     for (int j = 0; j < c2; j++)
                     {
@@ -55,7 +56,7 @@ namespace MultiplicacionMatricesSecuencial
                         matrixResponse[i, j] = respuesta;
                         respuesta = 0;
                     }
-                }
+                });
 
                 sw.Stop();
 
@@ -79,7 +80,7 @@ namespace MultiplicacionMatricesSecuencial
                 Console.WriteLine("No se puede multiplicar estas matrices");
                 Console.Read();
             }
-
+            Console.ReadLine();
         }
     }
 }
